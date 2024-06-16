@@ -19,6 +19,9 @@ Dx = min (calcDx, maxGrX)
 calcDy = alpha * ninY
 Dy = min (calcDy, maxGrY)
 
+print(Dx)
+print(Dy)
+
 """
 M Matrix (mask)
 
