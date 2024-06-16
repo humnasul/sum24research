@@ -8,6 +8,17 @@ according to diagram shown on document, i will be using the following estimated 
  # max threshold for y gradient: 0.42
  # alpha = 1.2 (can be changed)
 """
+alpha = 1.2
+ninX = 0.38
+ninY = 0.35
+maxGrX = 0.45
+maxGrY = 0.42
+calcDx = alpha * ninX
+Dx = min (calcDx, maxGrX)
+
+calcDy = alpha * ninY
+Dy = min (calcDy, maxGrY)
+
 """
 M Matrix (mask)
 
