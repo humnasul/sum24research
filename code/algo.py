@@ -1,6 +1,11 @@
 import numpy as np
 # D = min [ alpha * D sub 0.99, Dmax]
 """
+according to diagram shown on document, i will be using the following estimated values:
+ # 99th percentile for x gradient: 0.38
+ # 99th percentile for y gradient: 0.35
+"""
+"""
 M Matrix (mask)
 
 """
