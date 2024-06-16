@@ -6,6 +6,7 @@ according to diagram shown on document, i will be using the following estimated 
  # 99th percentile for y gradient: 0.35
  # max threshold for x gradient: 0.45
  # max threshold for y gradient: 0.42
+ # alpha = 1.2 (can be changed)
 """
 """
 M Matrix (mask)
