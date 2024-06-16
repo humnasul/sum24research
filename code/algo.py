@@ -4,6 +4,8 @@ import numpy as np
 according to diagram shown on document, i will be using the following estimated values:
  # 99th percentile for x gradient: 0.38
  # 99th percentile for y gradient: 0.35
+ # max threshold for x gradient: 0.45
+ # max threshold for y gradient: 0.42
 """
 """
 M Matrix (mask)
