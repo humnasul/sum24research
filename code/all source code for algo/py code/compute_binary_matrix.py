@@ -13,3 +13,5 @@ def compute_binary_matrix(input_image, binary_M, thresh_x, thresh_y, Tmin, Tmax,
                 binary_M[iy][ix] = 1
             else:
                 binary_M[iy][ix] = 0
+        # ix loop
+    # iy loop
