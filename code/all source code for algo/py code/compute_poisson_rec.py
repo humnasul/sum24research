@@ -22,3 +22,27 @@ def compute_poisson_rec(input_image, output_image, binary_M, grid_dct, sx, sy, L
 
     return
 
+# Example input data (replace with your actual data)
+sx = 100  # Image width
+sy = 80   # Image height
+input_image = np.random.rand(sy, sx)
+binary_M = np.random.randint(0, 2, size=(sy, sx))
+grid_dct = np.random.rand(sy, sx)
+
+# Initialize output arrays
+output_image = np.zeros_like(input_image)
+Lap = np.zeros_like(input_image)
+Lap_dct = np.zeros_like(input_image)
+
+# Lap[0] = pyfftw.empty_aligned(128, dtype='complex128')
+# Lap_dtc[0] = pyfftw.empty_aligned(128, dtype='complex128')
+
+# Create FFTW plans
+plan_forward = pyfftw.FFTW(Lap[0], Lap_dct[0], direction='FFTW_FORWARD', flags=('FFTW_MEASURE',))
+plan_backward = pyfftw.FFTW(Lap_dct[0], Lap[0], direction='FFTW_BACKWARD', flags=('FFTW_MEASURE',))
+
+# Call the compute_poisson_rec function
+compute_poisson_rec(input_image, output_image, binary_M, grid_dct, sx, sy, Lap, Lap_dct, plan_forward, plan_backward)
+
+# Print or use the resulting output_image
+print(output_image)
