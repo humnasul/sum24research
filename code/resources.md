@@ -10,4 +10,10 @@ FFTW Errors (compiling C):
 - https://www.fftw.org/fftw2_doc/fftw_6.html
 - https://gcc.gnu.org/onlinedocs/gnat_ugn/Position-Independent-Executable-PIE-Enabled-by-Default-on-Linux.html
 - https://thoughtbot.com/blog/the-magic-behind-configure-make-make-install
-- Intel oneAPI: https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html#gs.an04r8
+- Intel oneAPI: https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compiler.html#gs.an04r8  
+
+Vocabulary:
+- ICC / ICPC : intel compilers for C and C++; require Intel OneAPI downloads
+- FFTW: fast discrete Fourier Transform algorithm
+- CFLAGS = compiler flags to specify for a compiling command
+- CC = specify compiler in a terminal command
