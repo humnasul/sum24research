@@ -29,9 +29,23 @@ def compute_poisson_rec(input_image, output_image, binary_M, grid_dct, sx, sy, L
                 if binary_M[iy-1, ix] != 0:
                     Lap[iy, ix] += input_image[iy-1, ix] - input_image[iy, ix]
 
-        Lap[iy, sx-1] = input_image[iy][sx-2] - input_image[iy][sx-1];
-        if(binary_M[iy  ][sx-1]!=0) Lap[iy][sx-1] += input_image[iy+1][sx-1] - input_image[iy][sx-1];
-        if(binary_M[iy-1][sx-1]!=0) Lap[iy][sx-1] += input_image[iy-1][sx-1] - input_image[iy][sx-1];
+        Lap[iy, sx-1] = input_image[iy][sx-2] - input_image[iy][sx-1]
+        if binary_M[iy, sx-1] != 0:
+            Lap[iy, sx-1] += input_image[iy+1, sx-1] - input_image[iy, sx-1]
+        if binary_M[iy-1, sx-1] != 0:
+            Lap[iy, sx-1] += input_image[iy-1, sx-1] - input_image[iy, sx-1]
     
+    Lap[sy-1, 0] = -input_image[sy-1, 0] + input_image[sy-1, 1]
+    if binary_M[sy-2, 0] != 0:
+        Lap[sy-1, 0] += input_image[sy-2, 0] - input_image[sy-1, 0]
+
+    for(ix=1; ix<(sx-1); ix++){
+        Lap[sy-1][ix] = input_image[sy-1][ix-1] - 2.0*input_image[sy-1][ix] + input_image[sy-1][ix+1];
+        if(binary_M[sy-2][ix]!=0) Lap[sy-1][ix] += input_image[sy-2][ix] - input_image[sy-1][ix];
+    }
+
+    Lap[sy-1][sx-1] = input_image[sy-1][sx-2] - input_image[sy-1][sx-1];
+    if(binary_M[sy-2][sx-1]!=0) Lap[sy-1][sx-1] += input_image[sy-2][sx-1] - input_image[sy-1][sx-1];
+        
     return
 
