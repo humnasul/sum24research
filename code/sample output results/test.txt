@@ -1,0 +1,280 @@
+Destriping /home/humna/Documents/samples/sample_input_original/A20133370505_BLD4_L2.hdf
+Using MODIS bands for chlor and kd490
+Reading l2_flags
+Data read
+Memory allocated
+======================================================================================
+Variable nLw_412
+nLw_412    20     8 0.200000 0.400000 0.400000 -0.900000 16.000000
+Data read
+Thresh_x = 0.400000 Thresh_y = 0.398400
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -2.487818e-04  std_diff = 1.741171e-02  NEdT = 9.701366e-03
+Average correction = -4.163113e-05
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_412  0.025670  0.977180   617152
+======================================================================================
+======================================================================================
+Variable nLw_443
+nLw_443    20     8 0.150000 0.400000 0.400000 -0.900000 16.000000
+Data read
+Thresh_x = 0.400000 Thresh_y = 0.400000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -2.145466e-04  std_diff = 1.987628e-02  NEdT = 1.264213e-02
+Average correction = -3.507346e-05
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_443  0.025726  0.976929   616169
+nLw_443 saved
+======================================================================================
+======================================================================================
+Variable nLw_469
+nLw_469    10     8 0.150000 0.400000 0.400000 -0.900000 16.000000
+Data read
+Thresh_x = 0.400000 Thresh_y = 0.400000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -1.149756e-04  std_diff = 1.866636e-02  NEdT = 1.114986e-02
+Average correction = -1.965497e-05
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_469  0.027158  0.976576   608608
+======================================================================================
+======================================================================================
+Variable nLw_488
+nLw_488    10     8 0.100000 0.400000 0.400000 -0.900000 16.000000
+Data read
+Thresh_x = 0.400000 Thresh_y = 0.400000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -9.911635e-05  std_diff = 1.882803e-02  NEdT = 1.134383e-02
+Average correction = -1.596544e-05
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_488  0.025090  0.977490   609688
+nLw_488 saved
+======================================================================================
+======================================================================================
+Variable nLw_531
+nLw_531    10     8 0.100000 0.300000 0.300000 -0.900000 16.000000
+Data read
+Thresh_x = 0.300000 Thresh_y = 0.300000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -4.784281e-05  std_diff = 1.603523e-02  NEdT = 8.228111e-03
+Average correction = -8.878974e-06
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_531  0.024557  0.977711   590925
+======================================================================================
+======================================================================================
+Variable nLw_551
+nLw_551    10     8 0.100000 0.400000 0.400000 -0.900000 16.000000
+Data read
+Thresh_x = 0.400000 Thresh_y = 0.400000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -3.335304e-05  std_diff = 1.995412e-02  NEdT = 1.274135e-02
+Average correction = -4.101460e-06
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_551  0.023793  0.977412   604862
+nLw_551 saved
+======================================================================================
+======================================================================================
+Variable nLw_555
+nLw_555    10     8 0.100000 0.300000 0.300000 -0.900000 16.000000
+Data read
+Thresh_x = 0.300000 Thresh_y = 0.300000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -4.662220e-05  std_diff = 1.632801e-02  NEdT = 8.531320e-03
+Average correction = -9.513350e-06
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_555  0.025162  0.977061   586132
+nLw_555 saved
+======================================================================================
+======================================================================================
+Variable nLw_645
+nLw_645    20     8 0.100000 0.200000 0.200000 -0.900000 16.000000
+Data read
+Thresh_x = 0.200000 Thresh_y = 0.200000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -2.677524e-05  std_diff = 1.223319e-02  NEdT = 4.788831e-03
+Average correction = -9.737364e-06
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_645  0.025425  0.976331   580024
+nLw_645 saved
+======================================================================================
+======================================================================================
+Variable nLw_667
+nLw_667    10     8 0.050000 0.100000 0.100000 -0.900000 16.000000
+Data read
+Thresh_x = 0.100000 Thresh_y = 0.100000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = 7.089297e-06  std_diff = 5.091033e-03  NEdT = 8.293957e-04
+Average correction = 4.355264e-07
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_667  0.022299  0.977572   536904
+nLw_667 saved
+======================================================================================
+======================================================================================
+Variable nLw_678
+nLw_678    10     8 0.050000 0.100000 0.100000 -0.900000 16.000000
+Data read
+Thresh_x = 0.100000 Thresh_y = 0.100000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = 4.434945e-06  std_diff = 5.063887e-03  NEdT = 8.205746e-04
+Average correction = 1.497823e-07
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_678  0.022509  0.977417   541843
+======================================================================================
+======================================================================================
+Variable nLw_748
+nLw_748    10     8 0.010000 0.100000 0.100000 -0.900000 16.000000
+Data read
+Thresh_x = 0.100000 Thresh_y = 0.100000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -1.249084e-05  std_diff = 3.888103e-03  NEdT = 4.837551e-04
+Average correction = -6.297092e-07
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_748  0.022233  0.977534   266718
+======================================================================================
+======================================================================================
+Variable nLw_859
+nLw_859    10     8 0.010000 0.050000 0.050000 -0.900000 16.000000
+Data read
+Thresh_x = 0.050000 Thresh_y = 0.050000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -4.656813e-06  std_diff = 1.743336e-03  NEdT = 9.725500e-05
+Average correction = -1.331356e-07
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_859  0.021696  0.974620   262171
+======================================================================================
+======================================================================================
+Variable nLw_869
+nLw_869    10     8 0.010000 0.050000 0.050000 -0.900000 16.000000
+Data read
+Thresh_x = 0.050000 Thresh_y = 0.050000
+fftw3 initialized on 4 threads
+Iteration number: 0
+Iteration number: 1
+Iteration number: 2
+Iteration number: 3
+Iteration number: 4
+Iteration number: 5
+Iteration number: 6
+Iteration number: 7
+nly_filter: ave_diff = -3.376372e-06  std_diff = 1.719489e-03  NEdT = 9.461257e-05
+Average correction = -2.932826e-08
+Destriping done
+  Band    NIF        NDF      domain_size
+ nLw_869  0.021582  0.973994   263019
+======================================================================================
+chlor_a recalculated and saved
+kd490 recalculated and saved
+ERROR: Cannot write kdpar data 10
+(Are kdpar data present in /home/humna/Documents/samples/sample_input_original/A20133370505_BLD4_L2.hdf?)
+======================================================================================
+WARNING: Following products were already destriped: DESTRIPED_PRODUCTS = nLw_412 nLw_443 nLw_469 nLw_488 nLw_531 nLw_551 nLw_555 nLw_645 nLw_667 nLw_678 nLw_748 nLw_859 nLw_869 chlor_a k490_noaa
+DESTRIPED_PRODUCTS attribute written in hdf file
+======================================================================================
+threads = 4   cpu_time_used = 15 (sec)   real_time_used = 7 (sec)
