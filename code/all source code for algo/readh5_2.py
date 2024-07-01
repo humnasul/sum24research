@@ -14,5 +14,5 @@ def print_hdf5_data(h5_file):
       print(h5_file[group][dataset])
 
 if __name__ == '__main__':
-  with h5py.File('MYD021KM.A2022001.1630.061.2022002160909_L2_OCSMART.h5', 'r') as f:
+  with h5py.File('A20133370505_BLD4_L2.hdf', 'r') as f:
     print_hdf5_data(f)
