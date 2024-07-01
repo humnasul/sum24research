@@ -1,5 +1,5 @@
 import h5py
-filename = "MYD021KM.A2022001.1630.061.2022002160909_L2_OCSMART.h5"
+filename = "A20133370505_BLD4_L2.hdf"
 
 with h5py.File(filename, "r") as f:
     # Print all root level object names (aka keys) 
