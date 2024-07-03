@@ -166,22 +166,13 @@ int main(int argc, char** argv) {
     }
 
     // set up Fo data needed for chlor and kd490
-    if(argv[1][pos] == 'V') { // VIIRS
-        printf("Using VIIRS bands for chlor and kd490\n");
-        Fo[1] = 190.26;
-        Fo[2] = 198.87;
-        Fo[3] = 184.23;
-        Fo[4] = 150.45;
-    } 
-    else { // MODIS
-        printf("Using MODIS bands for chlor and kd490\n");
-        Fo[1] = 187.30;
-        Fo[3] = 194.85;
-        Fo[5] = 186.58;
-        Fo[6] = 183.95;
-        Fo[7] = 158.59;
-        Fo[8] = 152.20;
-    }
+    printf("Using MODIS bands for chlor and kd490\n");
+    Fo[1] = 187.30;
+    Fo[3] = 194.85;
+    Fo[5] = 186.58;
+    Fo[6] = 183.95;
+    Fo[7] = 158.59;
+    Fo[8] = 152.20;
 
     ///////////////////////////////////////////////////////////////////////
     //////////////////// read parameters  /////////////////////////////////
@@ -420,26 +411,14 @@ int main(int argc, char** argv) {
         //    printf("NWF = %i\n", nwf);
         printf("  Band    NIF        NDF      domain_size\n %s  %2.6f  %2.6f   %i\n", bandnames[is], nif, ndf, nwf);
 
-        // restore bowtie areas in case of VIIRS
-        if(argv[1][pos] == 'V') { // VIIRS
-            restore_viirs_bowtie( bufferf2, bowtie, nx1, ny2, -100.0);
-        }
-
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(argv[1][pos] == 'V') { // VIIRS
-            if(strcmp(bandnames[is],"nLw_445\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("nLw_445 saved\n"); is_nLw_445 = 1; }
-            if(strcmp(bandnames[is],"nLw_488\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][2] = bufferf2[ny0][i]; printf("nLw_488 saved\n"); is_nLw_488 = 1; }
-            if(strcmp(bandnames[is],"nLw_555\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("nLw_555 saved\n"); is_nLw_555 = 1; }
-            if(strcmp(bandnames[is],"nLw_672\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][4] = bufferf2[ny0][i]; printf("nLw_672 saved\n"); is_nLw_672 = 1; }
-        }
-        else {  // modis
-            if(strcmp(bandnames[is],"nLw_443\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("nLw_443 saved\n"); is_nLw_443 = 1; }
-            if(strcmp(bandnames[is],"nLw_488\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("nLw_488 saved\n"); is_nLw_488 = 1; }
-            if(strcmp(bandnames[is],"nLw_551\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("nLw_551 saved\n"); is_nLw_551 = 1; }
-            if(strcmp(bandnames[is],"nLw_555\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("nLw_555 saved\n"); is_nLw_555 = 1; }
-            if(strcmp(bandnames[is],"nLw_645\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("nLw_645 saved\n"); is_nLw_645 = 1; }
-            if(strcmp(bandnames[is],"nLw_667\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("nLw_667 saved\n"); is_nLw_667 = 1; }
-        }
+        if(strcmp(bandnames[is],"nLw_443\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("nLw_443 saved\n"); is_nLw_443 = 1; }
+        if(strcmp(bandnames[is],"nLw_488\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("nLw_488 saved\n"); is_nLw_488 = 1; }
+        if(strcmp(bandnames[is],"nLw_551\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("nLw_551 saved\n"); is_nLw_551 = 1; }
+        if(strcmp(bandnames[is],"nLw_555\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("nLw_555 saved\n"); is_nLw_555 = 1; }
+        if(strcmp(bandnames[is],"nLw_645\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("nLw_645 saved\n"); is_nLw_645 = 1; }
+        if(strcmp(bandnames[is],"nLw_667\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("nLw_667 saved\n"); is_nLw_667 = 1; }
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // scale data back to short integer values
 #pragma omp parallel for 
