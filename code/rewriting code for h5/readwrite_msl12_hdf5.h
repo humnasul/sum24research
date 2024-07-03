@@ -75,10 +75,10 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
     char    dataset_full_name[1024];
 
     // look for datasets in these 4 locations
-    char    loc1[] = "/Geophysical Data/";
-    char    loc2[] = "/Navigation Data/";
-    char    loc3[] = "/Scan-Line Attributes/";
-    char    loc4[] = "/Sensor Band Parameters/";
+    char    loc1[] = "/AOD/";
+    char    loc2[] = "/Lrc/";
+    char    loc3[] = "/Lt/";
+    char    loc4[] = "/Rrs/";
     char    *dataset_locations[4] = { loc1, loc2, loc3, loc4 };
     int     idataset_locations, ndataset_locations = 4;
 
