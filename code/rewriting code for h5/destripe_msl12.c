@@ -155,6 +155,7 @@ int main(int argc, char** argv) {
     // printf("maxthreads =  %i\n", omp_get_max_threads());
 
 
+    /*
     // find if this is VIIRS or MODIS file
     // search for the first letter of filename
     int pos = 0;
@@ -163,7 +164,8 @@ int main(int argc, char** argv) {
             pos = i+1;
             break;
         }
-    }
+    } */
+    // do not need this code since we are always using MODIS in this case
 
     // set up Fo data needed for chlor and kd490
     printf("Using MODIS bands for chlor and kd490\n");
@@ -205,6 +207,7 @@ int main(int argc, char** argv) {
     printf("Data read\n");
 
     // allocate space for nLw data  - later needed  for kd490 and chlor
+    // alocate_2d_f allocates 2d array space of the float data type
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
     nLws     = allocate_2d_f(ny1*nx1, 16);
@@ -299,10 +302,7 @@ int main(int argc, char** argv) {
 #pragma omp parallel for 
         for(iy=0; iy<nx1*ny2; iy++) { bufferf1[0][iy] = buffer1[iy]*0.001; }
 
-        // fill VIIRS bowtie area with interpolated values
-        if(argv[1][pos] == 'V') { // VIIRS
-            fill_viirs_bowtie( bufferf1, bowtie, nx1, ny2, -1.0, 20.0, -100.0);
-        }
+        //removed VIIRS code here
 
         /////////////////////////////////////////////////////////////////////////////////////
         // loop over all pixels and find the histogram for x derivatives
