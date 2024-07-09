@@ -71,8 +71,8 @@ int main(int argc, char** argv) {
     float Qmin_arr[40], Qmax_arr[40], Tx_arr[40], Ty_arr[40], NEdQ_arr[40];
     float Qplotmin_chlor, Qplotmax_chlor, Qplotmin_kd490, Qplotmax_kd490, Qplotmin[40], Qplotmax[40];
 
-    int is_nLw_445 = 0, is_nLw_488 = 0, is_nLw_555 = 0, is_nLw_672 = 0;
-    int is_nLw_443 = 0, is_nLw_551 = 0, is_nLw_645 = 0, is_nLw_667 = 0;
+    int is_Rrs_412 = 0, is_Rrs_443 = 0, is_Rrs_488 = 0, is_Rrs_531 = 0;
+    int is_Rrs_547 = 0, is_Rrs_667 = 0, is_Rrs_678 = 0, is_Rrs_748 = 0;
 
     float Fo[16];
     float **nLws, *chlor;
@@ -416,12 +416,14 @@ int main(int argc, char** argv) {
         printf("  Band    NIF        NDF      domain_size\n %s  %2.6f  %2.6f   %i\n", bandnames[is], nif, ndf, nwf);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(strcmp(bandnames[is],"Rrs_412nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("Rrs_412nm saved\n"); is_nLw_443 = 1; }
-        if(strcmp(bandnames[is],"Rrs_443nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("Rrs_443nm saved\n"); is_nLw_488 = 1; }
-        if(strcmp(bandnames[is],"nLw_551\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("nLw_551 saved\n"); is_nLw_551 = 1; }
-        if(strcmp(bandnames[is],"nLw_555\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("nLw_555 saved\n"); is_nLw_555 = 1; }
-        if(strcmp(bandnames[is],"nLw_645\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("nLw_645 saved\n"); is_nLw_645 = 1; }
-        if(strcmp(bandnames[is],"nLw_667\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("nLw_667 saved\n"); is_nLw_667 = 1; }
+        if(strcmp(bandnames[is],"Rrs_412nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("Rrs_412nm saved\n"); is_Rrs_412 = 1; }
+        if(strcmp(bandnames[is],"Rrs_443nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("Rrs_443nm saved\n"); is_Rrs_443 = 1; }
+        if(strcmp(bandnames[is],"Rrs_488nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("Rrs_488nm saved\n"); is_Rrs_488 = 1; }
+        if(strcmp(bandnames[is],"Rrs_531nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("Rrs_531nm saved\n"); is_Rrs_531 = 1; }
+        if(strcmp(bandnames[is],"Rrs_547nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("Rrs_547nm saved\n"); is_Rrs_547 = 1; }
+        if(strcmp(bandnames[is],"Rrs_667nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_667nm saved\n"); is_Rrs_667 = 1; }
+        if(strcmp(bandnames[is],"Rrs_678nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_678nm saved\n"); is_Rrs_678 = 1; }
+        if(strcmp(bandnames[is],"Rrs_748nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_748nm saved\n"); is_Rrs_748 = 1; }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // scale data back to short integer values
