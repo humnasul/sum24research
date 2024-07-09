@@ -210,7 +210,7 @@ int main(int argc, char** argv) {
     if(status1!=0) { printf("ERROR: Cannot read flag data! %i\n", 10*status1);  return -1; }
     printf("Data read\n");
 
-    // allocate space for nLw data  - later needed  for kd490 and chlor
+    // allocate space for Rrs data  - later needed  for kd490 and chlor
     // alocate_2d_f allocates 2d array space of the float data type
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
@@ -431,7 +431,7 @@ int main(int argc, char** argv) {
         for(iy=0; iy<nx1*ny1; iy++) { buffer1[iy] = (short) round(bufferf2[ny0][iy]*scalefact); }
 
         status1 = write_msl12(&buffer1, &nx1, &ny1, bandnames[is], argv[1]);
-        if(status1!=0) { printf("ERROR: Cannot write nLw data %i\n", 10*status1); }
+        if(status1!=0) { printf("ERROR: Cannot write Rrs data %i\n", 10*status1); }
         sprintf(attrstr_arr[nattrstr], "%s\0",  bandnames[is]); nattrstr++; // add this band to the list of bands destriped
 
         printf("======================================================================================\n");
@@ -458,43 +458,26 @@ int main(int argc, char** argv) {
     }
   
     int getchlor = 0, getkd490 = 0;
-
-    if(argv[1][pos] == 'V') { // VIIRS
-        if( is_nLw_445 && is_nLw_488 && is_nLw_555 ) {
-            getchlor = 1;
-            for(i=0; i<nx1*ny1; i++){
-                chlor[i] = get_chl_oc3_viirs(nLws[i], Fo);
-            }  
+    // MODIS code under here - removed all VIIRS
+    
+    //if( is_nLw_443 && is_nLw_488 && is_nLw_551 && is_nLw_555 ) {
+    if( is_Rrs_443 && is_Rrs_488 ) {
+        getchlor = 1;
+        for(i=0;i<nx1*ny1;i++){
+            chlor[i] = get_chl_oc3_modis(nLws[i], Fo);
         }
-
-        if( is_nLw_488 && is_nLw_555 && is_nLw_672 ) {
-            getkd490 = 1;
-            for(i=0;i<nx1*ny1;i++){
-                // kd490[i] = (short) (get_k490_noaa_viirs_pix(nLws[i], Fo)/2.0E-4);
-                get_k490_noaa_viirs_pix( nLws[i], Fo, &kd490f, &kdparf );
-                kd490[i] = (short) (kd490f/2.0E-4);
-                kdpar[i] = (short) (kdparf/2.0E-4);
-            }  
-        }
-
     }
-    else { // MODIS
-        if( is_nLw_443 && is_nLw_488 && is_nLw_551 && is_nLw_555 ) {
-            getchlor = 1;
-            for(i=0;i<nx1*ny1;i++){
-                chlor[i] = get_chl_oc3_modis(nLws[i], Fo);
-            }
+    //if( is_nLw_488 && is_nLw_551 && is_nLw_555 && is_nLw_645 && is_nLw_667 ) {
+    // removed vals that don't exist
+    if( is_Rrs_488 && is_Rrs_667 ) {
+        getkd490 = 1;
+        for(i=0;i<nx1*ny1;i++){
+            // kd490[i] = (short) (get_k490_noaa_modis_pix(nLws[i], Fo)/2.0E-4);
+            get_k490_noaa_modis_pix( nLws[i], Fo, &kd490f, &kdparf );
+            kd490[i] = (short) (kd490f/2.0E-4);
+            kdpar[i] = (short) (kdparf/2.0E-4);
         }
-        if( is_nLw_488 && is_nLw_551 && is_nLw_555 && is_nLw_645 && is_nLw_667 ) {
-            getkd490 = 1;
-            for(i=0;i<nx1*ny1;i++){
-                // kd490[i] = (short) (get_k490_noaa_modis_pix(nLws[i], Fo)/2.0E-4);
-                get_k490_noaa_modis_pix( nLws[i], Fo, &kd490f, &kdparf );
-                kd490[i] = (short) (kd490f/2.0E-4);
-                kdpar[i] = (short) (kdparf/2.0E-4);
-            }
-        }  
-    }
+    }  
 
     // if chlor_a was updated, save it to hdf file
     if(getchlor) {
