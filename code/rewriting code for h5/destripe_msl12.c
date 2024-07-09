@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     int is_Rrs_547 = 0, is_Rrs_667 = 0, is_Rrs_678 = 0, is_Rrs_748 = 0;
 
     float Fo[16];
-    float **nLws, *chlor;
+    float **RrsS, *chlor;
     short *kd490, *kdpar;
     float kd490f, kdparf;
     int  nattrstr = 0;
@@ -214,14 +214,14 @@ int main(int argc, char** argv) {
     // alocate_2d_f allocates 2d array space of the float data type
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
-    nLws     = allocate_2d_f(ny1*nx1, 16);
+    RrsS    = allocate_2d_f(ny1*nx1, 16);
     // also, allocate other data buffers - floats
     bufferf1 = allocate_2d_f(ny1+160, nx1);
     bufferf2 = allocate_2d_f(ny1+160, nx1);
     binary_M = allocate_2d_i(ny1+160, nx1);
     bowtie   = allocate_2d_f(ny1+160, nx1);
     buffer1  = (short*) malloc((ny1+160)*nx1*sizeof(short));
-    if( (nLws==NULL) || (bufferf1==NULL) || (bufferf2==NULL) || (binary_M==NULL) || (bowtie==NULL) || (buffer1==NULL) ) {
+    if( (RrsS==NULL) || (bufferf1==NULL) || (bufferf2==NULL) || (binary_M==NULL) || (bowtie==NULL) || (buffer1==NULL) ) {
         printf("ERROR: Cannot allocate data \n"); 
         return -1;
     }
@@ -416,14 +416,14 @@ int main(int argc, char** argv) {
         printf("  Band    NIF        NDF      domain_size\n %s  %2.6f  %2.6f   %i\n", bandnames[is], nif, ndf, nwf);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(strcmp(bandnames[is],"Rrs_412nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("Rrs_412nm saved\n"); is_Rrs_412 = 1; }
-        if(strcmp(bandnames[is],"Rrs_443nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("Rrs_443nm saved\n"); is_Rrs_443 = 1; }
-        if(strcmp(bandnames[is],"Rrs_488nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("Rrs_488nm saved\n"); is_Rrs_488 = 1; }
-        if(strcmp(bandnames[is],"Rrs_531nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("Rrs_531nm saved\n"); is_Rrs_531 = 1; }
-        if(strcmp(bandnames[is],"Rrs_547nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("Rrs_547nm saved\n"); is_Rrs_547 = 1; }
-        if(strcmp(bandnames[is],"Rrs_667nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_667nm saved\n"); is_Rrs_667 = 1; }
-        if(strcmp(bandnames[is],"Rrs_678nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_678nm saved\n"); is_Rrs_678 = 1; }
-        if(strcmp(bandnames[is],"Rrs_748nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][8] = bufferf2[ny0][i]; printf("Rrs_748nm saved\n"); is_Rrs_748 = 1; }
+        if(strcmp(bandnames[is],"Rrs_412nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][1] = bufferf2[ny0][i]; printf("Rrs_412nm saved\n"); is_Rrs_412 = 1; }
+        if(strcmp(bandnames[is],"Rrs_443nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][3] = bufferf2[ny0][i]; printf("Rrs_443nm saved\n"); is_Rrs_443 = 1; }
+        if(strcmp(bandnames[is],"Rrs_488nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][5] = bufferf2[ny0][i]; printf("Rrs_488nm saved\n"); is_Rrs_488 = 1; }
+        if(strcmp(bandnames[is],"Rrs_531nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][6] = bufferf2[ny0][i]; printf("Rrs_531nm saved\n"); is_Rrs_531 = 1; }
+        if(strcmp(bandnames[is],"Rrs_547nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][7] = bufferf2[ny0][i]; printf("Rrs_547nm saved\n"); is_Rrs_547 = 1; }
+        if(strcmp(bandnames[is],"Rrs_667nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][8] = bufferf2[ny0][i]; printf("Rrs_667nm saved\n"); is_Rrs_667 = 1; }
+        if(strcmp(bandnames[is],"Rrs_678nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][8] = bufferf2[ny0][i]; printf("Rrs_678nm saved\n"); is_Rrs_678 = 1; }
+        if(strcmp(bandnames[is],"Rrs_748nm\0")==0){ for(i=0; i<nx1*ny1; i++)  RrsS[i][8] = bufferf2[ny0][i]; printf("Rrs_748nm saved\n"); is_Rrs_748 = 1; }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // scale data back to short integer values
@@ -464,7 +464,7 @@ int main(int argc, char** argv) {
     if( is_Rrs_443 && is_Rrs_488 ) {
         getchlor = 1;
         for(i=0;i<nx1*ny1;i++){
-            chlor[i] = get_chl_oc3_modis(nLws[i], Fo);
+            chlor[i] = get_chl_oc3_modis(RrsS[i], Fo);
         }
     }
     //if( is_nLw_488 && is_nLw_551 && is_nLw_555 && is_nLw_645 && is_nLw_667 ) {
@@ -473,7 +473,7 @@ int main(int argc, char** argv) {
         getkd490 = 1;
         for(i=0;i<nx1*ny1;i++){
             // kd490[i] = (short) (get_k490_noaa_modis_pix(nLws[i], Fo)/2.0E-4);
-            get_k490_noaa_modis_pix( nLws[i], Fo, &kd490f, &kdparf );
+            get_k490_noaa_modis_pix( RrsS[i], Fo, &kd490f, &kdparf );
             kd490[i] = (short) (kd490f/2.0E-4);
             kdpar[i] = (short) (kdparf/2.0E-4);
         }
@@ -558,7 +558,7 @@ int main(int argc, char** argv) {
     free(chlor); 
     free(kd490);
     free(kdpar);
-    free(nLws[0]); free(nLws);
+    free(RrsS[0]); free(RrsS);
     free(bandnames[0]); free(bandnames);
     /////////////////////////////////////////////////////////////////////
   
