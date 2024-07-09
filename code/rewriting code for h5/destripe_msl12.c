@@ -416,8 +416,8 @@ int main(int argc, char** argv) {
         printf("  Band    NIF        NDF      domain_size\n %s  %2.6f  %2.6f   %i\n", bandnames[is], nif, ndf, nwf);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(strcmp(bandnames[is],"nLw_443\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("nLw_443 saved\n"); is_nLw_443 = 1; }
-        if(strcmp(bandnames[is],"nLw_488\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("nLw_488 saved\n"); is_nLw_488 = 1; }
+        if(strcmp(bandnames[is],"Rrs_412nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][1] = bufferf2[ny0][i]; printf("Rrs_412nm saved\n"); is_nLw_443 = 1; }
+        if(strcmp(bandnames[is],"Rrs_443nm\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][3] = bufferf2[ny0][i]; printf("Rrs_443nm saved\n"); is_nLw_488 = 1; }
         if(strcmp(bandnames[is],"nLw_551\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][5] = bufferf2[ny0][i]; printf("nLw_551 saved\n"); is_nLw_551 = 1; }
         if(strcmp(bandnames[is],"nLw_555\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][6] = bufferf2[ny0][i]; printf("nLw_555 saved\n"); is_nLw_555 = 1; }
         if(strcmp(bandnames[is],"nLw_645\0")==0){ for(i=0; i<nx1*ny1; i++)  nLws[i][7] = bufferf2[ny0][i]; printf("nLw_645 saved\n"); is_nLw_645 = 1; }
