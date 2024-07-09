@@ -167,11 +167,15 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
 
     // get the dataspace for the dataset
     dataspace = H5Dget_space(dataset);
+    /* H5Dget_space() makes a copy of the dataspace of the dataset specified by dset_id. 
+    The function returns an identifier for the new copy of the dataspace.
+    */
     if(dataspace<0) {
          printf("Cannot open HDF5 dataspace for dataset %s!\n", dataset_full_name); 
          return -1; 
     }
 
+    // H5Sget_simple_extent_ndims - Determines the dimensionality of a dataspace.
     // get the number of dimensions and make sure it is 2
     rank_dset = H5Sget_simple_extent_ndims(dataspace);
     if(rank_dset!=2) { 
