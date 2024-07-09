@@ -203,6 +203,10 @@ int main(int argc, char** argv) {
 
     printf("Reading l2_flags\n");
     status1 = read_msl12(&l2_flags1, &nx1, &ny1, "l2_flags\0", argv[1]);
+    // read_msl12 defined in readwrite_msl12.h
+    /* 
+        evaluates which ending the file has (h4, h5, etc.) and calls corresponding file
+    */
     if(status1!=0) { printf("ERROR: Cannot read flag data! %i\n", 10*status1);  return -1; }
     printf("Data read\n");
 
@@ -211,7 +215,7 @@ int main(int argc, char** argv) {
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
     nLws     = allocate_2d_f(ny1*nx1, 16);
-    // also, allocate other data buffers
+    // also, allocate other data buffers - floats
     bufferf1 = allocate_2d_f(ny1+160, nx1);
     bufferf2 = allocate_2d_f(ny1+160, nx1);
     binary_M = allocate_2d_i(ny1+160, nx1);

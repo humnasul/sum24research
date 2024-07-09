@@ -207,6 +207,7 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
         }
 
         // read data into buffer
+        // H5Dread - reads a dataset, specified by its identifier dset_id, from the file into an application memory buffer *buffer
         hdferr = H5Dread( dataset, H5T_DATA_TYPE, H5S_ALL, H5S_ALL, H5P_DEFAULT, *buffer);
         if(hdferr<0) { 
             printf("Cannot read data to hdf!\n");
