@@ -207,7 +207,7 @@ int main(int argc, char** argv) {
     /* 
         evaluates which ending the file has (h4, h5, etc.) and calls corresponding file
     */
-    if(status1!=0) { printf("ERROR: Cannot read flag data! %i\n", 10*status1);  return -1; }
+    if(status1!=0) { printf("ERROR: Cannot read flag data! %i\n", 10*status1);  return -1; } //stuck here rn
     printf("Data read\n");
 
     // allocate space for Rrs data  - later needed  for kd490 and chlor
