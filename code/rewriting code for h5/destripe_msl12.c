@@ -473,7 +473,7 @@ int main(int argc, char** argv) {
         getkd490 = 1;
         for(i=0;i<nx1*ny1;i++){
             // kd490[i] = (short) (get_k490_noaa_modis_pix(nLws[i], Fo)/2.0E-4);
-            get_k490_noaa_modis_pix( RrsS[i], Fo, &kd490f, &kdparf );
+            get_k490_noaa_modis_pix( RrsS[i], &kd490f, &kdparf );
             kd490[i] = (short) (kd490f/2.0E-4);
             kdpar[i] = (short) (kdparf/2.0E-4);
         }
