@@ -25,7 +25,7 @@ float get_chl_oc3_modis(float Rrs[])
     float rat;
     float minRrs;
     float chl = chlbad;
-    float Rrs551_555;
+    //float Rrs551_555;
     float Rrs443 = Rrs[1];
     float Rrs488 = Rrs[3];
     // Rrs551 and Rrs555 variables removed
@@ -41,12 +41,25 @@ float get_chl_oc3_modis(float Rrs[])
     // We require Rrs551 to be positive, and we require that if any band
     // goes negative, it must occur in order of wavelength 
 
-    if ( (nLw[3] > 20.0) || (nLw[6] > 20.0) ) {
-        chl = -1;
+    if ( /* (Rrs551_555 > 0.0) && */ Rrs488 > 0.0 ) {
+        rat = MAX(Rrs443,Rrs488); // removed dividing by Rrs551_555
+
+        /* Fail if ratio is unphysical (Rat=0.21 -> Chl=640) */
+        if (rat > 0.21) { 
+            rat = log10(rat);
+            chl = (float) pow(10.0,(a[0]+rat*(a[1]+rat*(a[2]+rat*(a[3]+rat*a[4])))));
+            chl = (chl > chlmin ? chl : chlmin);
+        }
     }
 
+    /*
+    if ( (nLw[3] > 20.0) || (nLw[6] > 20.0) ) {
+        chl = -1;
+    } */
+   // removed for now
+
     /*set the value to be -2 for negative water leaving radiance*/ 
-    if ( MAX(Rrs443,Rrs488) < 0.0 ) {
+    if ( /*  (Rrs551_555 < 0.0) || */ MAX(Rrs443,Rrs488) < 0.0 ) {
         chl=-1;
     }
     
