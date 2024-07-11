@@ -28,8 +28,7 @@ float get_chl_oc3_modis(float Rrs[])
     float Rrs551_555;
     float Rrs443 = Rrs[1];
     float Rrs488 = Rrs[3];
-    float Rrs551 = Rrs[5];
-    float Rrs555 = Rrs[6];
+    // Rrs551 and Rrs555 variables removed
 
     //    static float a[] = {0.283,-2.753,1.457,0.659,-1.403};
     static float a[] = {0.2424,-2.5828,1.7057,-0.3415,-0.8818};	// updated v6 coefficient - lidej.2013.10.25
@@ -37,12 +36,7 @@ float get_chl_oc3_modis(float Rrs[])
     minRrs = MIN(Rrs443,Rrs488);
 
     /* For cases where  Rrs551 is saturated, Rrs555 is used 3/7/07*/ 
-    if (nLw[5] < 20.0) {
-        Rrs551_555 = Rrs551;
-    }
-    else {
-        Rrs551_555 = Rrs555;
-    }
+    // code for Rrs551 and Rrs555 removed
 
     // We require Rrs551 to be positive, and we require that if any band
     // goes negative, it must occur in order of wavelength 
