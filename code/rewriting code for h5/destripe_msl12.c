@@ -464,7 +464,7 @@ int main(int argc, char** argv) {
     if( is_Rrs_443 && is_Rrs_488 ) {
         getchlor = 1;
         for(i=0;i<nx1*ny1;i++){
-            chlor[i] = get_chl_oc3_modis(RrsS[i], Fo);
+            chlor[i] = get_chl_oc3_modis(RrsS[i]);
         }
     }
     //if( is_nLw_488 && is_nLw_551 && is_nLw_555 && is_nLw_645 && is_nLw_667 ) {

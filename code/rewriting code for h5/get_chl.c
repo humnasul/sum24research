@@ -20,16 +20,16 @@ static float chlbad = CHL_BAD;
 /////////////////////////////////////////////////////////////////////////////////////////
 // calculate chl_a for modis
 /////////////////////////////////////////////////////////////////////////////////////////
-float get_chl_oc3_modis(float nLw[], float Fo[])
+float get_chl_oc3_modis(float Rrs[])
 {
     float rat;
     float minRrs;
     float chl = chlbad;
     float Rrs551_555;
-    float Rrs443 = nLw[1]/Fo[1];
-    float Rrs488 = nLw[3]/Fo[3];
-    float Rrs551 = nLw[5]/Fo[5];
-    float Rrs555 = nLw[6]/Fo[6];
+    float Rrs443 = Rrs[1];
+    float Rrs488 = Rrs[3];
+    float Rrs551 = Rrs[5];
+    float Rrs555 = Rrs[6];
 
     //    static float a[] = {0.283,-2.753,1.457,0.659,-1.403};
     static float a[] = {0.2424,-2.5828,1.7057,-0.3415,-0.8818};	// updated v6 coefficient - lidej.2013.10.25
