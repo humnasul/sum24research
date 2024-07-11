@@ -40,23 +40,13 @@ float get_chl_oc3_modis(float Rrs[])
 
     // We require Rrs551 to be positive, and we require that if any band
     // goes negative, it must occur in order of wavelength 
-    if ( (Rrs551_555 > 0.0) && (Rrs488 > 0.0) ) {
-        rat = MAX(Rrs443,Rrs488)/Rrs551_555;
-
-        /* Fail if ratio is unphysical (Rat=0.21 -> Chl=640) */
-        if (rat > 0.21) { 
-            rat = log10(rat);
-            chl = (float) pow(10.0,(a[0]+rat*(a[1]+rat*(a[2]+rat*(a[3]+rat*a[4])))));
-            chl = (chl > chlmin ? chl : chlmin);
-        }
-    }
 
     if ( (nLw[3] > 20.0) || (nLw[6] > 20.0) ) {
         chl = -1;
     }
 
     /*set the value to be -2 for negative water leaving radiance*/ 
-    if ( (Rrs551_555 < 0.0) || (MAX(Rrs443,Rrs488) < 0.0) ) {
+    if ( MAX(Rrs443,Rrs488) < 0.0 ) {
         chl=-1;
     }
     
@@ -65,41 +55,6 @@ float get_chl_oc3_modis(float Rrs[])
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // calculate chl_a for viirs
+//  REMOVED
 /////////////////////////////////////////////////////////////////////////////////////////
-float get_chl_oc3_viirs(float nLw[], float Fo[])
-{
-
-    float rat;
-    float chl = chlbad;
-
-    float Rrs445 = nLw[1]/Fo[1];
-    float Rrs488 = nLw[2]/Fo[2];
-    float Rrs555 = nLw[3]/Fo[3];
-
-    static float a[] = {0.2228,-2.4683,1.5867,-0.4275,-0.7768};
-
-    // We require Rrs555 to be positive, and we require that if any band
-    //   goes negative, it must occur in order of wavelength 
-    if ( (Rrs555 > 0.0) && (Rrs488 > 0.0) ) {
-        rat = MAX(Rrs445,Rrs488)/Rrs555;
-
-        /* Fail if ratio is unphysical (Rat=0.21 -> Chl=640) */
-        if (rat > 0.21) {
-            rat = log10(rat);
-            chl = (float) pow(10.0,(a[0]+rat*(a[1]+rat*(a[2]+rat*(a[3]+rat*a[4])))));
-            chl = (chl > chlmin ? chl : chlmin);
-        }
-    }
-
-    if ( (nLw[2] > 20.0) || (nLw[3] > 20.0) ) {
-        chl=CHL_BAD;
-    }
-
-    /*set the value to be -2 for negative water leaving radiance*/
-    if ( (Rrs555 < 0.0) || (MAX(Rrs445,Rrs488) < 0.0) ) {
-        chl=CHL_BAD;
-    }
-
-    return (chl);
-};
 
