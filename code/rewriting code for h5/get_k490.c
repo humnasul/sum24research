@@ -13,6 +13,14 @@
 /*                                                                     */
 /*---------------------------------------------------------------------*/
 
+/*
+Humna Sultan
+Edited to suit Rrs and OC-SMART input
+removed all instances of nLw / Fo and replaced with Rrs
+- in the case that code could not be replaced, it was removed
+- OC-SMART file only uses Rrs and nLw input does not exist
+*/
+
 #include <stdlib.h>
 #include <math.h>
 // #include "l12_proto.h"
