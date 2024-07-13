@@ -6,3 +6,6 @@ links to testing data for OC-SMART:
 
 research algorithm presentation ( will modify + simplify described algo for code ) :
 - https://docs.google.com/presentation/d/1nXQmaEEBFRVWg6f4FZk67FeGeBL6JJkhEVfQIX8zZYk/edit?usp=sharing
+
+evaluation on input for OC-SMART code currently being used:  
+- https://docs.google.com/document/d/1xXZJlbZHGxaUovxiQ7H1AAywQWpNpdB5lhtcGOeV2RM/edit
