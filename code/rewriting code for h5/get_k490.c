@@ -14,6 +14,13 @@
 /*---------------------------------------------------------------------*/
 
 /*
+k490 expresses how deeply visible light penetrates in the 
+ocean and its value describes describes the extent to which the 
+intensity of visible light (with wavelength equal to 490 nm) is reduced as 
+it penetrates into the ocean
+*/
+
+/*
 Humna Sultan
 Edited to suit Rrs and OC-SMART input
 removed all instances of nLw / Fo and replaced with Rrs
