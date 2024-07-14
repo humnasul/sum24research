@@ -17,3 +17,4 @@ Vocabulary:
 - FFTW: fast discrete Fourier Transform algorithm
 - CFLAGS = compiler flags to specify for a compiling command
 - CC = specify compiler in a terminal command
+- "Meassure by satellite, maps of ocean color K490 (the diffuse attenuation coefficient at 490 nm) are directly related to the presence of organic or inorganic particles in the water and constitutes an indication of water turbidity. K490 expresses how deeply visible light penetrates in the ocean and its value describes describes the extent to which the intensity of visible light (with wavelength equal to 490 nm) is reduced as it penetrates into the ocean. Higher K490 value mean smaller attenuation depth, and lower clarity of ocean water. As a result, regional differences and gradients of this parameter help to define Gulf of Mexico water masses circulation features of interest to decision makers, managers, and scientists." from https://www.aoml.noaa.gov/phod/dhos/color_K490.php
