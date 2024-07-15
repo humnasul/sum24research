@@ -73,6 +73,7 @@ int main(int argc, char** argv) {
 
     int is_Rrs_412 = 0, is_Rrs_443 = 0, is_Rrs_488 = 0, is_Rrs_531 = 0;
     int is_Rrs_547 = 0, is_Rrs_667 = 0, is_Rrs_678 = 0, is_Rrs_748 = 0;
+    //changed to Rrs from nLw
 
     float Fo[16];
     float **RrsS, *chlor;
