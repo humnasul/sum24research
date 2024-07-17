@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     int is_Rrs_547 = 0, is_Rrs_667 = 0, is_Rrs_678 = 0, is_Rrs_748 = 0;
     //changed to Rrs from nLw
 
-    float Fo[16];
+    //float Fo[16];
     float **RrsS, *chlor;
     short *kd490, *kdpar;
     float kd490f, kdparf;
@@ -168,6 +168,7 @@ int main(int argc, char** argv) {
     } */
     // do not need this code since we are always using MODIS in this case
 
+    /*
     // set up Fo data needed for chlor and kd490
     printf("Using MODIS bands for chlor and kd490\n");
     Fo[1] = 187.30;
@@ -176,6 +177,9 @@ int main(int argc, char** argv) {
     Fo[6] = 183.95;
     Fo[7] = 158.59;
     Fo[8] = 152.20;
+
+    this code not needed for Rrs
+    */
 
     ///////////////////////////////////////////////////////////////////////
     //////////////////// read parameters  /////////////////////////////////
