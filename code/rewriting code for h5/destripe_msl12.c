@@ -480,4 +480,3 @@ int main(int argc, char** argv) {
     printf("threads = %i   cpu_time_used = %i (sec)   real_time_used = %i (sec)\n", nthreads,(int) ((end_ticks - start_ticks)/(1.0*CLOCKS_PER_SEC)), (int) (end_time-start_time) ) ;
     return 0;
 };
-
