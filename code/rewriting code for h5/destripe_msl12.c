@@ -36,8 +36,6 @@
 #include "mfhdf.h"
 #include "readwrite_msl12.h"
 #include "l2_flags.h"
-#include "get_chl.c"
-#include "get_k490.c"
 #include "destripe.h"
 #include "fill_restore_viirs_bowtie.c"
 #include "get_nif_ndf.c"
