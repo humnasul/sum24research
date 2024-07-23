@@ -123,6 +123,7 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
         printf("Cannot initialize HDF5 library!\n"); 
         return -1; 
     }
+    // if open fails, error message
 
     // open file for read/write
     if(readwrite==0)  file_id = H5Fopen(filename, H5F_ACC_RDONLY, H5P_DEFAULT);
