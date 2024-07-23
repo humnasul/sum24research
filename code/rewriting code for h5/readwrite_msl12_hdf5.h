@@ -90,10 +90,16 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     hid_t   file_id, dataset, dataset_factors, dataspace, H5T_DATA_TYPE;
+    // variables of type hid_t
+    // hid_t is a variable type belonging to the MATLAB® HDF5 datatype interface
     herr_t  hdferr;
+    // Herr_t is a type in HDF5, which is the HDF5 Error Handling Interface
     int     info, rank_dset, i, iprint = 0;
     unsigned long long   dims[2], dimsizes[2], maxdimsizes[2];
+    // "An unsigned long long occupies 8 bytes of memory; it stores an integer from 0 to 2^64-1, 
+    //         which is approximately 1.8×10^19 (18 quintillion, or 18 billion billion"
     char    dataset_full_name[1024];
+    // will hold 
 
     // look for datasets in these 4 locations
     char    loc1[] = "/AOD/";
@@ -102,9 +108,11 @@ int read_msl12_hdf5(dtype ** buffer, int * nx, int * ny, char * dataset_name, ch
     char    loc4[] = "/Rrs/";
     char    *dataset_locations[4] = { loc1, loc2, loc3, loc4 };
     int     idataset_locations, ndataset_locations = 4;
+    // 4 locations defined are contained inside dataset_locations
 
 
-    if(iprint > 0) printf("read_msl12_hdf5\n");     
+    if(iprint > 0) printf("read_msl12_hdf5\n");   
+    // iprint is used for debugging!  
 
     H5T_DATA_TYPE = get_hdf5_data_type<dtype>();
     if(iprint>0) printf("H5T_DATA_TYPE = %i\n", H5T_DATA_TYPE); 
