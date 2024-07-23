@@ -217,12 +217,16 @@ int main(int argc, char** argv) {
     // alocate_2d_f allocates 2d array space of the float data type
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
+
+    // makes arr[param1][param2]
     RrsS    = allocate_2d_f(ny1*nx1, 16);
     // also, allocate other data buffers - floats
     bufferf1 = allocate_2d_f(ny1+160, nx1);
     bufferf2 = allocate_2d_f(ny1+160, nx1);
     binary_M = allocate_2d_i(ny1+160, nx1);
     bowtie   = allocate_2d_f(ny1+160, nx1);
+    //ny1 is a parameter that affects the number of rows in the array
+    // nx1 affects the number of columns in the array
     buffer1  = (short*) malloc((ny1+160)*nx1*sizeof(short));
     if( (RrsS==NULL) || (bufferf1==NULL) || (bufferf2==NULL) || (binary_M==NULL) || (bowtie==NULL) || (buffer1==NULL) ) {
         printf("ERROR: Cannot allocate data \n"); 
