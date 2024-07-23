@@ -6,22 +6,34 @@
 
 #ifndef READWRITE_MSL12_HDF5
 #define READWRITE_MSL12_HDF5
+//defining the file
 
 #include <stdio.h>
 #include <string.h>
 #include "hdf5.h"
+//including packages to use string and hdf5
 #define MAX_STR_LEN 1024
+// defining max string length for this code
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+// templates - allow you to write generic code that can work with different data types.
+
 template <class dtype>
+// dtype is a placeholder for a data type that will be specified when the template is instantiated
 hid_t get_hdf5_data_type();
+// declares a function named get_hdf5_data_type, return type is hid_t
 
 template <>
 hid_t get_hdf5_data_type<char>()   { return H5T_NATIVE_CHAR;   }
+// specialization of template for char
+//returns hid_t type
+// when you call get_hdf5_data_type<char>(), it will return the H5T_NATIVE_CHAR value
+// "H5T_NATIVE_CHAR is a predefined constant in HDF5 (Hierarchical Data Format) 
+//      that represents the native char data type for the platform"
 
 template <>
 hid_t get_hdf5_data_type<short>()  { return H5T_NATIVE_SHORT;  }
