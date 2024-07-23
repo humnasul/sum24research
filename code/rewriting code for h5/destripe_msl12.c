@@ -237,6 +237,7 @@ int main(int argc, char** argv) {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///   loop over all possible bands              /////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // figure out how to do 1 band first
     for(is=0; is<ns; is++) {
         printf("======================================================================================\n");
         printf("Variable %s\n", bandnames[is]);
@@ -274,6 +275,7 @@ int main(int argc, char** argv) {
 
 
         // read the data of granule to destripe
+        // understand how to do this with Rrs
         status1 = read_msl12(&buffer0, &nx1, &ny1, bandnames[is], argv[1]);
         if(status1!=0) {
             printf("Band %s not found in file %s\n", bandnames[is], argv[1]);
@@ -325,12 +327,16 @@ int main(int argc, char** argv) {
 
                 if( (buffer1[(ny0+iy)*nx1 + ix    ] < Qmin*scalefact) || 
                     (buffer1[(ny0+iy)*nx1 + ix    ] > Qmax*scalefact) || 
-                    (l2_flags1[iy*nx1 + ix    ] & HIGLINT) )  continue;
+                    (l2_flags1[iy*nx1 + ix    ] /*& HIGLINT change this to a diff condition*/) )  continue;
 
                 if( (buffer1[(ny0+iy)*nx1 + ix + 1] < Qmin*scalefact) ||
                     (buffer1[(ny0+iy)*nx1 + ix + 1] > Qmax*scalefact) ||
-                    (l2_flags1[iy*nx1 + ix + 1] & HIGLINT) )  continue;
+                    (l2_flags1[iy*nx1 + ix + 1] & /* HIGLINT change this to a diff condition*/) )  continue;
 
+                    /*
+                    different condition should be
+                    Rrs != NaN
+                    */
                 i =  abs( buffer1[(ny0+iy)*nx1 + ix ] - buffer1[(ny0+iy)*nx1 + ix + 1] );
                 if(i<HMAX) {
                     histogram[i]++;
