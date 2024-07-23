@@ -37,18 +37,27 @@ hid_t get_hdf5_data_type<char>()   { return H5T_NATIVE_CHAR;   }
 
 template <>
 hid_t get_hdf5_data_type<short>()  { return H5T_NATIVE_SHORT;  }
+// specialization of template for short
+//returns hid_t type
+// when you call get_hdf5_data_type<short>(), it will return the H5T_NATIVE_SHORT value
+// "H5T_NATIVE_SHORT is a predefined constant in HDF5 (Hierarchical Data Format) 
+//      that represents the native short data type for the platform"
 
 template <>
 hid_t get_hdf5_data_type<int>()    { return H5T_NATIVE_INT;    }
+// specialization of template for int
 
 template <>
 hid_t get_hdf5_data_type<long>()   { return H5T_NATIVE_LONG;   }
+// specialization of template for long
 
 template <>
 hid_t get_hdf5_data_type<float>()  { return H5T_NATIVE_FLOAT;  }
+// specialization of template for float
 
 template <>
 hid_t get_hdf5_data_type<double>() { return H5T_NATIVE_DOUBLE; }
+// specialization of template for double
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
