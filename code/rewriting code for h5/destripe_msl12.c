@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
     int histogram[HMAX];
 
     int nx0, ny0, nx1, ny1, nx2, ny2, nya, nyb;
+    //ny1 * nx1 = full image
     int is, ns, ix, iy, status1, i, j, n, nthreads;
 
     int Ndet, Niter;
