@@ -1,3 +1,5 @@
+// edited by Humna Sultan for use with OC-SMART data
+
 #ifndef _L2_FLAGS_H
 #define _L2_FLAGS_H
 
