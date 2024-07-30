@@ -219,7 +219,8 @@ int main(int argc, char** argv) {
     // as well as temp. 2D arrays needed for destriping 
     // use dimensions from flags
 
-    // makes arr[param1][param2]
+    // makes arr[param1][param2] AKA [n1][n2]
+    // param1 = rows, param2 = cols
     RrsS    = allocate_2d_f(ny1*nx1, 16);
     // also, allocate other data buffers - floats
     bufferf1 = allocate_2d_f(ny1+160, nx1);
